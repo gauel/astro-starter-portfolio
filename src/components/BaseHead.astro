@@ -1,5 +1,5 @@
 ---
-import { ClientRouter } from "astro:transitions"
+import { ClientRouter } from 'astro:transitions';
 import { Font } from 'astro:assets';
 import { SITE } from '@/site.config';
 
@@ -11,8 +11,7 @@ interface Props {
 
 const { title: pageTitle, description: pageDescription, image } = Astro.props;
 
-// const siteName = SITE.name;
-const fullTitle = pageTitle === SITE.name
+const fullTitle = pageTitle.includes(SITE.name)
   ? pageTitle
   : `${pageTitle} · ${SITE.name}`;
 const description = pageDescription || SITE.description;
@@ -57,7 +56,6 @@ const socialImage = new URL(image || '/og-image.png', Astro.site);
   href="/favicons/favicon-96x96.png"
   sizes="96x96"
 />
-<link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
 <link rel="shortcut icon" href="/favicons/favicon.ico" />
 <link
   rel="apple-touch-icon"
@@ -85,8 +83,9 @@ const socialImage = new URL(image || '/og-image.png', Astro.site);
     document.documentElement.classList.toggle('dark', theme === 'dark');
     })();
     document.addEventListener('astro:after-swap', () => {
-    const stored = localStorage.getItem('theme');
-    document.documentElement.classList.toggle('dark', stored === 'dark');
+        const stored = localStorage.getItem('theme');
+        const theme = stored ?? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.classList.toggle('dark', theme === 'dark');
     });
 </script>
 

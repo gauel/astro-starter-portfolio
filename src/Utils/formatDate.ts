@@ -1,5 +1,4 @@
 // src/utils/formatDate.ts
-
 type DateStyle = "long" | "medium" | "short"
 
 const dateStyles: Record<DateStyle, Intl.DateTimeFormatOptions> = {
@@ -14,7 +13,7 @@ export function formatDate(
   options?: Intl.DateTimeFormatOptions
 ) {
   return new Intl.DateTimeFormat("en-US", {
-    timeZone: "Asia/Jakarta",
+    timeZone: "UTC",
     ...dateStyles[style],
     ...options,
   }).format(date)
