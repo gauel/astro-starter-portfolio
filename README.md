@@ -5,7 +5,7 @@
 A minimal, professional portfolio template for **Astro**. Built for people who want
 something that looks intentional on day one, without a component library you didn't ask for.
 
-[**Live Demo**](https://example.com) · [Report an issue](https://github.com/your-username/portfolio-starter/issues)
+[**Live Demo**](https://bracozs.github.io/astro-starter-portfolio/) · [Report an issue](https://github.com/BracoZS/astro-starter-portfolio/issues)
 
 </div>
 
@@ -36,7 +36,7 @@ add those yourself if your project actually needs them.
 ## Quick start
 
 ```bash
-git clone https://github.com/your-username/portfolio-starter.git
+git clone https://github.com/BracoZS/astro-starter-portfolio.git
 cd portfolio-starter
 npm install
 npm run dev
